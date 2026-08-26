@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@source "../views";
+
+/* ── PALETTE: vintage vanilla base + per-area accents ── */
+@theme {
+    --color-vanilla-50:  #fefdf8;
+    --color-vanilla-100: #fbf6e9;
+    --color-vanilla-200: #f6eccf;
+    --color-vanilla-300: #efdda8;
+    --color-vanilla-400: #e4c878;
+    --color-vanilla-500: #d3ac4e;
+    --color-ink:         #3a3226;
+
+    /* front — martian retro */
+    --color-martian-500: #c56a45;
+    --color-martian-600: #a44a2c;
+
+    /* super-admin — purple */
+    --color-grape-500: #8b5c9e;
+    --color-grape-700: #5e3a70;
+    --color-blush-400: #e88bbf;
+
+    /* admin — deep amber for contrast on yellow */
+    --color-butter-700: #8a6d15;
+
+    --font-display: Georgia, "Times New Roman", serif;
+
+    /* SEMANTIC tokens (front defaults) — pages use THESE, they switch per theme */
+    --color-paper:      var(--color-vanilla-100);  /* page background   */
+    --color-surface:    var(--color-vanilla-50);   /* inputs / cards    */
+    --color-line:       var(--color-vanilla-300);  /* borders           */
+    --color-accent:     var(--color-martian-600);  /* logo / links / btn*/
+    --color-on-accent:  #ffffff;                   /* text on filled btn*/
+}
+
+/* ── ADMIN: light-yellow paper, dark-amber accent ── */
+html[data-theme="admin"] {
+    --color-paper:     var(--color-vanilla-300);   /* soft yellow */
+    --color-surface:   #fdf8db;                    /* pale butter */
+    --color-line:      #d8c36a;                    /* muted gold  */
+    --color-accent:    var(--color-butter-700);    /* dark amber  */
+    --color-on-accent: #ffffff;
+}
+
+/* ── SUPER-ADMIN: light-lavender paper, dark-grape accent ── */
+html[data-theme="super-admin"] {
+    --color-paper:     #e9dff2;                     /* light purple */
+    --color-surface:   #f6f1fb;                     /* near-white lavender */
+    --color-line:      #d3c2e2;                     /* soft purple border  */
+    --color-accent:    var(--color-grape-700);      /* dark grape   */
+    --color-accent-2:  var(--color-blush-400);
+    --color-on-accent: #ffffff;
+}
+
+/* ── FLUID SIZING: px → vw at a 1920 design width ── */
+:root {
+    --design-width: 1920;
+    --container: clamp(20rem, calc(1600 / var(--design-width) * 100vw), 100rem);
+    --fluid-sm:   clamp(0.875rem, calc(16 / var(--design-width) * 100vw), 1rem);
+    --fluid-base: clamp(1rem,     calc(20 / var(--design-width) * 100vw), 1.25rem);
+    --fluid-lg:   clamp(1.5rem,   calc(32 / var(--design-width) * 100vw), 2.25rem);
+    --fluid-xl:   clamp(2rem,     calc(56 / var(--design-width) * 100vw), 4rem);
+}
+
+@utility container {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: 2rem;
+}
