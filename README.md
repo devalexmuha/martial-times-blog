@@ -2,7 +2,7 @@
 
 A martial-arts blog with a full **admin panel**, **user roles**, and **permission-based access control** — built in vanilla PHP with a small hand-rolled service container.
 
-This was my first larger project. Routing is done with **query parameters** (`index.php?route=...`) rather than pretty URLs, because at the time I hadn't yet learned how to build a router — something I later solved from scratch in my [Vanilla Core](../framework) framework.
+This was my first larger project. Routing is done with **query parameters** (`index.php?route=...`) rather than pretty URLs, because at the time I hadn't yet learned how to build a router — something I later solved from scratch in my [Vanilla Core](https://github.com/devalexmuha/vanilla-framework/) framework.
 
 ## Features
 
